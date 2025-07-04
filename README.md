@@ -41,7 +41,7 @@ This repository contains tried-and-tested templates for competitive programming 
 ### Quick Start
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/CP_Templates.git
+   git clone https://github.com/mahmoudabozied4/CP_Templates.git
    cd CP_Templates
    ```
 
