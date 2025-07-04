@@ -1,56 +1,42 @@
 # CP_Templates
 
-A collection of competitive programming templates to accelerate problem-solving during contests and practice sessions.
+A comprehensive collection of competitive programming templates designed for speed and efficiency in contests.
 
-## 📋 Table of Contents
+## 🚀 Quick Start
 
-- [Overview](#overview)
-- [Templates Included](#templates-included)
-- [Usage](#usage)
+```bash
+git clone https://github.com/mahmoudabozied4/CP_Templates.git
+cd CP_Templates
+```
 
-## 🎯 Overview
+## 📁 Template Categories
 
-This repository contains tried-and-tested templates for competitive programming that I've refined through various contests and practice sessions. Each template is optimized for speed, readability, and common use cases encountered in programming competitions.
+### 🔧 Data Structures
+| Template | Time Complexity | Use Case |
+|----------|-----------------|----------|
+| **Fenwick Tree** | O(log n) | Prefix sums, point updates |
+| **Segment Tree** | O(log n) | Range queries with lazy propagation |
+| **Sparse Table** | O(1) query | Static range queries (RMQ, GCD) |
+| **Ordered Set** | O(log n) | k-th element, order statistics |
+| **Merge Sort Tree** | O(log²n) | Range order statistics |
+| **Monotonic Stack/Queue** | O(n) | Sliding window extrema |
 
-## 📁 Templates Included
+### 🧮 Algorithms
+| Category | Templates Included |
+|----------|-------------------|
+| **Graph** | DFS, BFS, Dijkstra, Floyd-Warshall, MST |
+| **Dynamic Programming** | Common patterns, optimization tricks |
+| **Mathematical** | GCD, LCM, modular arithmetic, primes |
+| **String** | KMP, Z-algorithm, hashing |
 
-### Data Structures
-- **Fenwick Tree** - A data structure that provides efficient methods for prefix sums and point updates in logarithmic time. Ideal for scenarios where you need to update elements and compute prefix sums frequently.
-- **Matrix** - A two-dimensional array used for representing grids, performing mathematical operations, and modeling graphs using adjacency matrices. Supports operations like multiplication, rotation, and exponentiation.
-- **Merge Sort Tree** -  A variant of a segment tree that stores sorted arrays at each node. It allows you to answer range queries related to order statistics, such as counting how many elements are less than or equal to a given number within a range.
-- **Monotonic Data Structure** -  Special types of stacks or queues that maintain elements in increasing or decreasing order. Used in problems like sliding window minimum/maximum, next greater/smaller elements, and histogram-based area problems.
-- **Orderd Set** - An augmented balanced binary search tree (like C++'s GNU PBDS) that supports operations such as finding the k-th smallest element or the number of elements less than a given value, all in logarithmic time.
-- **Sparse Table** - A static data structure used for answering range queries (like minimum, maximum, GCD) in constant time after a preprocessing phase of O(n log n). Does not support updates.
-- **Segment Tree** - A powerful data structure for handling dynamic range queries and updates. It supports various operations (sum, min, max, GCD, XOR) over intervals and can be extended with lazy propagation, persistence, etc.
+### ⚡ Utilities
+- Fast I/O with buffer optimization
+- Debug macros for development
+- Coordinate compression
+- Modular arithmetic operations
+- Grid navigation utilities
 
-### Algorithms
-- **Dynamic Programming** - Common DP patterns and state transitions
-- **Graph Algorithms** - DFS, BFS, shortest path algorithms
-- **Mathematical** - GCD, LCM, modular arithmetic, prime generation
-- **Greedy Algorithms** - Common greedy patterns and approaches
-
-### Utilities
-- **Fast I/O** - Optimized input/output for large datasets
-- **Debug Macros** - Debugging utilities for development
-- **Common Headers** - Standard includes and namespace declarations
-- **Modular Arithmetic** - Safe operations with large numbers
-- **Coordinate Compression** - Space optimization techniques
-
-## 🚀 Usage
-
-### Quick Start
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mahmoudabozied4/CP_Templates.git
-   cd CP_Templates
-   ```
-
-2. Copy the relevant template to your working directory
-3. Modify the template according to your problem requirements
-4. Compile and run
-
-### Template Structure
-Each template follows this comprehensive structure:
+## 🎯 Core Template Structure
 
 ```cpp
 #include <bits/stdc++.h>
@@ -58,7 +44,7 @@ Each template follows this comprehensive structure:
 using namespace std;
 using namespace __gnu_pbds;
 
-// Type definitions
+// ============= Type Definitions =============
 #define ll long long
 #define int long long
 #define ull unsigned long long
@@ -67,386 +53,241 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 
-// Utility macros
-#define elif else if
-#define endd(s) return void(cout << s << "\n")
-#define Ceil(n, m) (((n) / (m)) + ((n) % (m) ? 1 : 0))
+// ============= Utility Macros =============
+#define sz(s) int32_t(s.size())
+#define all(vec) vec.begin(), vec.end()
+#define rall(v) v.rbegin(), v.rend()
+#define pb push_back
 #define X first
 #define Y second
-#define fixed(n) fixed << setprecision(n)
-#define sz(s) int32_t(s.size())
-#define dbg(x) cout << #x << ": " << (x) << "\n";
-#define getline(s) getline(cin >> ws, s)
-#define Time cerr << "Time Taken: " << (float)clock() / CLOCKS_PER_SEC << " Secs" << "\n";
-#define all(vec) vec.begin(), vec.end()
-#define rall(v) v.rbegin(),v.rend()
-#define pb push_back
-#define kill return 0
 
-// Modular arithmetic macros
-#define mul_mod(a, b) (((a % M) * (b % M)) % M)
-#define add_mod(a, b) (((a % M) + (b % M)) % M)
-#define sub_mod(a, b) ((((a % M) - (b % M)) % M + M) % M)
+// ============= Constants =============
+const int N = 4e5 + 20;
+const int M = 1'000'000'007;
+const int OO = 0x3F3F3F3F3F3F3F3F;
+const double EPS = 1e-9;
 
-// Constants
-const int N = 4e5 + 20, M = 1'000'000'007, OO = 0X3F3F3F3F3F3F3F3F;
-const double EPS = 1e-9, pi = 3.141592653589793;
-
-// Utilities
-vector<string> RET = {"NO", "YES"};
-#define IO(NAME) \
-cin.tie(0)->sync_with_stdio(0); \
-if(fopen(NAME ".in","r")) freopen(NAME ".in","r",stdin), \
-freopen(NAME ".out","w",stdout);
-
-// Policy-based data structures
-template<class T>
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-// Fast I/O setup
-void Zied() {
-    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+// ============= Fast I/O =============
+void fast_io() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
     #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     #endif
 }
 
-// Vector I/O operators
-template<typename T = int>
-istream &operator >>(istream &in, vector<T> &v) {
-    for (auto &x: v) in >> x;
+// ============= Modular Arithmetic =============
+inline int add_mod(int a, int b) { return ((a % M) + (b % M)) % M; }
+inline int sub_mod(int a, int b) { return ((a % M - b % M) + M) % M; }
+inline int mul_mod(int a, int b) { return ((a % M) * (b % M)) % M; }
+
+// ============= Policy-Based Data Structures =============
+template<class T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+// ============= I/O Operators =============
+template<typename T>
+istream& operator>>(istream& in, vector<T>& v) {
+    for (auto& x : v) in >> x;
     return in;
 }
 
-template<typename T = int>
-ostream &operator <<(ostream &out, const vector<T> &v) {
-    for (const T &x: v) out << x << ' ';
+template<typename T>
+ostream& operator<<(ostream& out, const vector<T>& v) {
+    for (const T& x : v) out << x << ' ';
     return out;
 }
 
-// Pair I/O operators
-template<typename A, typename B>
-istream &operator>>(istream &fin, pair<A, B> &p) {
-    fin >> p.X >> p.Y;
-    return fin;
-}
+// ============= Grid Navigation =============
+const int dx[] = {1, 0, -1, 0, -1, 1, -1, 1};
+const int dy[] = {0, 1, 0, -1, -1, 1, 1, -1};
 
-template<typename A, typename B>
-std::ostream &operator<<(std::ostream &fout, const std::pair<A, B> &p) {
-    fout << p.first << " " << p.second;
-    return fout;
-}
-
-// Direction vectors for grid problems
-enum dir { d, r, u, l, ul, dr, ur, dl };
-int dx[8] = {1, 0, -1, 0, -1, 1, -1, 1};
-int dy[8] = {0, 1, 0, -1, -1, 1, 1, -1};
-
-// Preprocessing function
-void preprocessing() {
-    // Add any preprocessing logic here
-}
-
-// Main solution function
-auto Solve(const int &n) {
-    // Your solution logic here
-}
-
-// Test case handler
-bool solve_test(const int test_number) {
+// ============= Solution Template =============
+void solve() {
     int n;
-    if (!(cin >> n))
-        return false;
+    cin >> n;
     
-    Solve(n);
-    // auto ans = Solve(n);
-    // cout << sz(ans) << endl;
-    // for (auto &it: ans) cout << it << ' ';
-    return true;
+    // Your solution here
+    
 }
 
-// Stress testing function
-void Stress() {
-    // for (int n = 2; n <= 1; ++n)
-    // cerr << n << ' ' << Solve(n) << '\n';
-}
-
-// Main function
 int32_t main() {
-    Zied();
-    Stress();
-    preprocessing();
+    fast_io();
     
     int test_cases = 1;
     // cin >> test_cases;
     
-    for (int tc = 1; tc <= test_cases; tc++) {
-        // cout << "Case " << tc << ": " << endl;
-        if (!solve_test(tc)) break;
-        // cout << endl;
+    while (test_cases--) {
+        solve();
     }
     
-    kill;
-    // Time
+    return 0;
 }
 ```
 
-### Key Features of This Template
+## 🛠️ Key Optimizations
 
-**Advanced Includes:**
-- `<ext/pb_ds/assoc_container.hpp>` - For policy-based data structures
-- `ordered_set` - Tree-based set with order statistics
+### Performance Enhancements
+- **Optimized I/O**: Custom operators for vectors and pairs
+- **Efficient Memory**: Smart constant definitions
+- **Fast Compilation**: Minimal includes for speed
+- **Modular Design**: Easy to copy specific components
 
-**Comprehensive Macros:**
-- Fast I/O setup with `Zied()` function
-- Modular arithmetic operations (`mul_mod`, `add_mod`, `sub_mod`)
-- Debugging utilities (`dbg`, `Time`)
-- Direction vectors for grid-based problems
-- Custom I/O operators for vectors and pairs
+### Code Quality
+- **Clear Structure**: Organized sections with headers
+- **Consistent Naming**: Standardized variable conventions
+- **Debug-Friendly**: Built-in debugging utilities
+- **Contest-Ready**: Preprocessor directives for online judges
 
-**Template Organization:**
-- `preprocessing()` - For precomputation and setup
-- `Solve()` - Main solution logic
-- `solve_test()` - Test case handling with EOF detection
-- `Stress()` - Stress testing framework
-- Built-in file I/O handling
+## 📊 Template Usage Guide
 
-*/ 
-### Quick Start
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/mahmoudabozied4/CP_Templates.git
-   cd CP_Templates
-   ```
-
-2. Copy the relevant template to your working directory
-3. Modify the template according to your problem requirements
-4. Compile and run
-
-### Template Structure
-Each template follows a consistent structure:
+### Basic Problem Solving
 ```cpp
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp>
-using namespace std;
-using namespace __gnu_pbds;
-
-// Type definitions
-#define ll long long
-#define int long long
-#define ull unsigned long long
-#define endl '\n'
-typedef pair<int, int> pii;
-typedef vector<int> vi;
-typedef vector<vi> vvi;
-
-// Utility macros
-#define elif else if
-#define endd(s) return void(cout << s << "\n")
-#define Ceil(n, m) (((n) / (m)) + ((n) % (m) ? 1 : 0))
-#define X first
-#define Y second
-#define fixed(n) fixed << setprecision(n)
-#define sz(s) int32_t(s.size())
-#define dbg(x) cout << #x << ": " << (x) << "\n";
-#define getline(s) getline(cin >> ws, s)
-#define Time cerr << "Time Taken: " << (float)clock() / CLOCKS_PER_SEC << " Secs" << "\n";
-#define all(vec) vec.begin(), vec.end()
-#define rall(v) v.rbegin(),v.rend()
-#define pb push_back
-#define kill return 0
-
-// Modular arithmetic macros
-#define mul_mod(a, b) (((a % M) * (b % M)) % M)
-#define add_mod(a, b) (((a % M) + (b % M)) % M)
-#define sub_mod(a, b) ((((a % M) - (b % M)) % M + M) % M)
-
-// Constants
-const int N = 4e5 + 20, M = 1'000'000'007, OO = 0X3F3F3F3F3F3F3F3F;
-const double EPS = 1e-9, pi = 3.141592653589793;
-
-// Utilities
-vector<string> RET = {"NO", "YES"};
-#define IO(NAME) \
-cin.tie(0)->sync_with_stdio(0); \
-if(fopen(NAME ".in","r")) freopen(NAME ".in","r",stdin), \
-freopen(NAME ".out","w",stdout);
-
-// Policy-based data structures
-template<class T>
-using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
-
-// Fast I/O setup
-void Zied() {
-    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
-    #ifndef ONLINE_JUDGE
-    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout);
-    #endif
-}
-
-// Vector I/O operators
-template<typename T = int>
-istream &operator >>(istream &in, vector<T> &v) {
-    for (auto &x: v) in >> x;
-    return in;
-}
-
-template<typename T = int>
-ostream &operator <<(ostream &out, const vector<T> &v) {
-    for (const T &x: v) out << x << ' ';
-    return out;
-}
-
-// Pair I/O operators
-template<typename A, typename B>
-istream &operator>>(istream &fin, pair<A, B> &p) {
-    fin >> p.X >> p.Y;
-    return fin;
-}
-
-template<typename A, typename B>
-std::ostream &operator<<(std::ostream &fout, const std::pair<A, B> &p) {
-    fout << p.first << " " << p.second;
-    return fout;
-}
-
-// Direction vectors for grid problems
-enum dir { d, r, u, l, ul, dr, ur, dl };
-int dx[8] = {1, 0, -1, 0, -1, 1, -1, 1};
-int dy[8] = {0, 1, 0, -1, -1, 1, 1, -1};
-
-// Preprocessing function
-void preprocessing() {
-    // Add any preprocessing logic here
-}
-
-// Main solution function
-auto Solve(const int &n) {
-    // Your solution logic here
-}
-
-// Test case handler
-bool solve_test(const int test_number) {
+void solve() {
     int n;
-    if (!(cin >> n))
-        return false;
+    cin >> n;
+    vi a(n);
+    cin >> a;
     
-    Solve(n);
-    // auto ans = Solve(n);
-    // cout << sz(ans) << endl;/*
-
- , .-'"'=;_ ,
-
- |\.'-~`-.`-`;/|
-
- \.` '.'~-.` './
-
- (\`,__=-'__,'/)
-
- .-'-.( d\/b ).-'-._
-
- /'.-' ' .---. ' '-.`\
-
- /' .' (= (_) =) '. `\
-
- /' .', -.__.-.__.-' ,'. \
-
- ( .'. V V ; '. )
-
- ( |:: `-,__.-.__,-' ::| )
-
- | /|`:. .:'|\ |
-
- | / | :. :' |\ |
-
- | | ( :. .: ) | |
-
- | | ( `:. :' ) | |
-
- | | \ :. .: / | |
-
- | | \`:. .:'/ | |
-
- ) ( \:. .:'/' ) (
-
- ( )_ ) :._.:' ( _(` )
-
- \ ' ) .' . (  /
-
- \ '_) / .'"```"'. \ (_` /
-
- '" \ ( ) / "'
-
- ___ MZ .. .'.' ___
-
- .` ``"""'''--`_) (_'--'''"""`` `.
-
-(_(_(___...--'"'` `'"'--...___)_)_)
-
-*/ 
-    // for (auto &it: ans) cout << it << ' ';
-    return true;
-}
-
-// Stress testing function
-void Stress() {
-    // for (int n = 2; n <= 1; ++n)
-    // cerr << n << ' ' << Solve(n) << '\n';
-}
-
-// Main function
-int32_t main() {
-    Zied();
-    Stress();
-    preprocessing();
-    
-    int test_cases = 1;
-    // cin >> test_cases;
-    
-    for (int tc = 1; tc <= test_cases; tc++) {
-        // cout << "Case " << tc << ": " << endl;
-        if (!solve_test(tc)) break;
-        // cout << endl;
-    }
-    
-    kill;
-    // Time
+    // Solution logic
+    cout << result << endl;
 }
 ```
-## 📊 Performance Notes
 
-Most templates are optimized for:
-- **Time Complexity**: Optimal or near-optimal for the given problem class
-- **Space Complexity**: Efficient memory usage
-- **Implementation Speed**: Fast to type and modify during contests
-- **Debugging**: Easy to trace and fix errors
+### Multiple Test Cases
+```cpp
+int32_t main() {
+    fast_io();
+    
+    int t;
+    cin >> t;
+    
+    while (t--) {
+        solve();
+    }
+    
+    return 0;
+}
+```
 
-## 🏆 Contest Platforms
+### Interactive Problems
+```cpp
+void solve() {
+    int n;
+    cin >> n;
+    
+    // Interactive solution
+    cout << "? " << query << endl;
+    cout.flush();
+    
+    int response;
+    cin >> response;
+    
+    cout << "! " << answer << endl;
+    cout.flush();
+}
+```
 
-These templates have been tested on:
-- Codeforces
-- AtCoder
-- LeetCode
-- HackerRank
-- CodeChef
-- SPOJ
+## 🎯 Specialized Templates
+
+### Graph Problems
+```cpp
+vector<vi> adj;
+vector<bool> visited;
+
+void dfs(int u) {
+    visited[u] = true;
+    for (int v : adj[u]) {
+        if (!visited[v]) {
+            dfs(v);
+        }
+    }
+}
+```
+
+### Dynamic Programming
+```cpp
+vector<vi> dp;
+
+int solve_dp(int i, int j) {
+    if (base_case) return base_value;
+    
+    if (dp[i][j] != -1) return dp[i][j];
+    
+    // Recurrence relation
+    return dp[i][j] = transition;
+}
+```
+
+## 🏆 Contest Platforms Tested
+
+- ✅ Codeforces
+- ✅ AtCoder  
+- ✅ CodeChef
+- ✅ LeetCode
+- ✅ HackerRank
+- ✅ SPOJ
 
 ## 📚 Learning Resources
 
-Recommended resources for competitive programming:
-- [Competitive Programming 3](https://cpbook.net/) by Steven Halim
-- [USACO Guide](https://usaco.guide/)
-- [CP-Algorithms](https://cp-algorithms.com/)
-- [YouKn0wWho](https://youkn0wwho.academy/topic-list)
-- 
-## 📜 License
+### Essential Reading
+- [Competitive Programming 4](https://cpbook.net/) - Steven Halim
+- [USACO Guide](https://usaco.guide/) - Comprehensive tutorials
+- [CP-Algorithms](https://cp-algorithms.com/) - Algorithm implementations
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Practice Platforms
+- [Codeforces](https://codeforces.com/) - Regular contests
+- [AtCoder](https://atcoder.jp/) - High-quality problems
+- [USACO](http://www.usaco.org/) - Olympiad preparation
 
-## 📞 Contact
+## 🔧 Advanced Features
 
-Feel free to reach out if you have questions or suggestions
+### Policy-Based Data Structures
+```cpp
+ordered_set<int> os;
+os.insert(x);
+os.order_of_key(x);  // 0-indexed position
+*os.find_by_order(k); // k-th element
+```
+
+### Coordinate Compression
+```cpp
+vi vals = {original_values};
+sort(all(vals));
+vals.erase(unique(all(vals)), vals.end());
+
+auto compress = [&](int x) {
+    return lower_bound(all(vals), x) - vals.begin();
+};
+```
+
+### Binary Search Template
+```cpp
+auto binary_search = [&](int l, int r) {
+    while (l < r) {
+        int mid = l + (r - l) / 2;
+        if (check(mid)) r = mid;
+        else l = mid + 1;
+    }
+    return l;
+};
+```
+
+## 🚀 Performance Tips
+
+1. **Use `int` as `long long`** for contest safety
+2. **Minimize memory allocations** in tight loops
+3. **Use references** to avoid unnecessary copies
+4. **Prefer `'\n'` over `endl`** for faster output
+5. **Use `reserve()`** for vectors with known sizes
+
+
+## 📞 Contact & Contributions
+
+Feel free to contribute improvements or report issues!
 
 ---
 
-**Happy Coding!** 🚀
+**Happy Competitive Programming!** 🏆
